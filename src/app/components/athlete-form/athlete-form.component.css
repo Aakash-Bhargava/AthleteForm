@@ -1,0 +1,56 @@
+
+mat-form-field {
+  display: block;
+  width: 50%;
+  margin-top: 20px;
+}
+
+mat-radio-group {
+  display: block;
+  margin-top: 20px;
+}
+
+mat-radio-button {
+  margin: 20px 10px 20px 0px;
+}
+
+.radio-label {
+  margin-right: 20px;
+  display: block;
+  color: #757575;
+}
+
+.summary-info-card {
+  display: inline-block;
+  width: 100%;
+  text-align: justify;
+}
+.personal-info-card{
+  display: inline-block;
+  width: 33%;
+}
+
+.athlete-info-card {
+  display: inline-block;
+  vertical-align: top;
+  width: 33%;
+}
+
+.social-info-card {
+  vertical-align: top;
+  width: 33%;
+  display: inline-block;
+}
+
+p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.btn {
+  margin-right: 15px;
+  width: 75px;
+}
+.btn-container {
+  margin-top: 20px;
+}

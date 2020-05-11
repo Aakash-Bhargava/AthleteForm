@@ -1,0 +1,83 @@
+<div class="body">
+  <button mat-raised-button (click)="backToSignUp()">Back to Sign Up</button>
+  <mat-card class="card" *ngFor="let athlete of athletes">
+    <mat-card-header>
+      <mat-card-title>{{athlete.name}}</mat-card-title>
+      <mat-card-subtitle>{{ athlete.about }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content class="summary-info-card">
+      <div class="personal-info-card">
+        <h2>
+          Personal Info
+        </h2>
+        <p>
+          <b>Gender: </b> {{ athlete.gender }}
+        </p>
+        <p>
+          <b>Date of birth: </b> {{ athlete.dob | date }}
+        </p>
+        <p>
+          <b>Nationality: </b>{{ athlete.nationality }}
+        </p>
+        <p>
+          <b>Located: </b> {{ athlete.location }}
+        </p>
+        <p>
+          <b>Marriatial Status: </b> {{ athlete.married }}
+        </p>
+        <p>
+          <b>Pets: </b> {{ athlete.pets }}
+        </p>
+        <p>
+          <b>Drinks: </b>{{ athlete.drinks }}
+        </p>
+        <p>
+          <b>Interests: </b> {{ athlete.interests }}
+        </p>
+        <p>
+          <b>Charaties: </b>{{ athlete.charaties }}
+        </p>
+
+      </div>
+
+      <div class="athlete-info-card">
+        <h2>
+          Athlete Info
+        </h2>
+        <p>
+          <b>Sports: </b>{{ athlete.sports }}
+        </p>
+        <p>
+          <b>Team: </b>{{ athlete.team }}
+        </p>
+        <p>
+          <b>Association: </b> {{ athlete.association }}
+        </p>
+      </div>
+
+      <div class="social-info-card">
+        <h2>
+          Social Info
+        </h2>
+        <p>
+          <b>Facebook: </b>{{ athlete.facebook }}
+        </p>
+        <p>
+          <b>Instagram: </b>{{ athlete.instagram }}
+        </p>
+        <p>
+          <b>Youtube: </b>{{ athlete.youtube }}
+        </p>
+        <p>
+          <b>Twitter: </b>{{ athlete.twitter }}
+        </p>
+        <p>
+          <b>Snapchat: </b>{{ athlete.snapchat }}
+        </p>
+        <p>
+          <b>Twitch: </b>{{ athlete.twitch }}
+        </p>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

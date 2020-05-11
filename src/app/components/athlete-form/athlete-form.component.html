@@ -1,0 +1,236 @@
+<div class="body">
+  <mat-horizontal-stepper [linear]="true" #stepper>
+    <mat-step [stepControl]="basicInfo">
+      <form [formGroup]="basicInfo" class="form">
+        <ng-template matStepLabel>Basic</ng-template>
+
+        <mat-form-field>
+          <mat-label>Full Name</mat-label>
+          <input formControlName="name" matInput required [(ngModel)]="athlete.name">
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Sports</mat-label>
+          <mat-select multiple  formControlName="sports" required [(ngModel)]="athlete.sports">
+            <mat-option *ngFor="let sport of sports" [value]="sport">{{sport}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Nationality</mat-label>
+          <input matInput formControlName="nationality" required [(ngModel)]="athlete.nationality">
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Date of Birth</mat-label>
+          <input matInput [matDatepicker]="myDatepicker" formControlName="dob" required [(ngModel)]="athlete.dob">
+          <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
+          <mat-datepicker #myDatepicker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-radio-group aria-label="Select an option" formControlName="gender" required [(ngModel)]="athlete.gender">
+          <mat-label class="radio-label">Gender</mat-label>
+          <mat-radio-button value="female">Female</mat-radio-button>
+          <mat-radio-button value="male">Male</mat-radio-button>
+        </mat-radio-group>
+        <div>
+          <button class="btn" mat-raised-button color="primary" matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step [stepControl]="personalInfo">
+      <form [formGroup]="personalInfo">
+        <ng-template matStepLabel>Personal Info</ng-template>
+
+        <mat-form-field>
+          <mat-label>Location</mat-label>
+          <input matInput placeholder="1425 Black Mountain Rd, Burlingame, CA, 94010" formControlName="location" required [(ngModel)]="athlete.location">
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Team</mat-label>
+          <input matInput placeholder="Los Angeles Lakers" formControlName="team" required [(ngModel)]="athlete.team">
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Association</mat-label>
+          <input matInput placeholder="NBA" formControlName="association" required [(ngModel)]="athlete.association">
+        </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>About you</mat-label>
+            <textarea matInput placeholder="Tell us about yourself"  [(ngModel)]="athlete.about" formControlName="about" required></textarea>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Affiliated Charities</mat-label>
+            <textarea matInput [(ngModel)]="athlete.charaties" formControlName="charaties"></textarea>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Interests</mat-label>
+            <textarea matInput [(ngModel)]="athlete.interests" formControlName="interests"></textarea>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Pets</mat-label>
+            <input matInput [(ngModel)]="athlete.pets" formControlName="pets">
+          </mat-form-field>
+
+          <mat-radio-group aria-label="Select an option" formControlName="drinks" [(ngModel)]="athlete.drinks">
+            <mat-label class="radio-label">Drink</mat-label>
+            <mat-radio-button value="socially">Socially</mat-radio-button>
+            <mat-radio-button value="frequently">Frequently</mat-radio-button>
+            <mat-radio-button value="never">Never</mat-radio-button>
+          </mat-radio-group>
+
+          <mat-radio-group aria-label="Select an option" formControlName="married" [(ngModel)]="athlete.married">
+            <mat-label class="radio-label">Material Status</mat-label>
+            <mat-radio-button value="single">Single</mat-radio-button>
+            <mat-radio-button value="married">Married</mat-radio-button>
+          </mat-radio-group>
+
+
+        <div>
+          <button class="btn" mat-raised-button matStepperPrevious>Back</button>
+          <button class="btn" mat-raised-button color="primary" matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step>
+      <form [formGroup]="socialInfo">
+        <ng-template matStepLabel>Social</ng-template>
+
+        <mat-form-field>
+          <mat-label>Facebook </mat-label>
+          <input matInput  formControlName="facebook" [(ngModel)]="athlete.facebook">
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Instagram </mat-label>
+          <input matInput  formControlName="instagram"  [(ngModel)]="athlete.instagram">
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Twitter</mat-label>
+          <input matInput formControlName="twitter" [(ngModel)]="athlete.twitter">
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Snapchat</mat-label>
+          <input matInput formControlName="snapchat" [(ngModel)]="athlete.snapchat">
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Youtube</mat-label>
+          <input matInput  formControlName="youtube" [(ngModel)]="athlete.youtube">
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Twitch</mat-label>
+          <input matInput  formControlName="twitch" [(ngModel)]="athlete.twitch">
+        </mat-form-field>
+      </form>
+
+      <button class="btn" mat-raised-button matStepperPrevious>Back</button>
+      <button class="btn" mat-raised-button color="primary" matStepperNext>Next</button>
+    </mat-step>
+
+    <mat-step>
+      <ng-template matStepLabel>Summary</ng-template>
+      <mat-card class="card">
+        <mat-card-header>
+          <mat-card-title>{{athlete.name}}</mat-card-title>
+          <mat-card-subtitle>{{ athlete.about }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content class="summary-info-card">
+          <div class="personal-info-card">
+            <h2>
+              Personal Info
+            </h2>
+            <p>
+              <b>Gender: </b> {{ athlete.gender }}
+            </p>
+            <p>
+              <b>Date of birth: </b> {{ athlete.dob | date }}
+            </p>
+            <p>
+              <b>Nationality: </b>{{ athlete.nationality }}
+            </p>
+            <p>
+              <b>Located: </b> {{ athlete.location }}
+            </p>
+            <p>
+              <b>Marriatial Status: </b> {{ athlete.married }}
+            </p>
+            <p>
+              <b>Pets: </b> {{ athlete.pets }}
+            </p>
+            <p>
+              <b>Drinks: </b>{{ athlete.drinks }}
+            </p>
+            <p>
+              <b>Interests: </b> {{ athlete.interests }}
+            </p>
+            <p>
+              <b>Charaties: </b>{{ athlete.charaties }}
+            </p>
+
+          </div>
+
+          <div class="athlete-info-card">
+            <h2>
+              Athlete Info
+            </h2>
+            <p>
+              <b>Sports: </b>{{ athlete.sports }}
+            </p>
+            <p>
+              <b>Team: </b>{{ athlete.team }}
+            </p>
+            <p>
+              <b>Association: </b> {{ athlete.association }}
+            </p>
+          </div>
+
+          <div class="social-info-card">
+            <h2>
+              Social Info
+            </h2>
+            <p>
+              <b>Facebook: </b>{{ athlete.facebook }}
+            </p>
+            <p>
+              <b>Instagram: </b>{{ athlete.instagram }}
+            </p>
+            <p>
+              <b>Youtube: </b>{{ athlete.youtube }}
+            </p>
+            <p>
+              <b>Twitter: </b>{{ athlete.twitter }}
+            </p>
+            <p>
+              <b>Snapchat: </b>{{ athlete.snapchat }}
+            </p>
+            <p>
+              <b>Twitch: </b>{{ athlete.twitch }}
+            </p>
+          </div>
+        </mat-card-content>
+      </mat-card>
+      <div class="btn-container">
+        <button class="btn" mat-raised-button matStepperPrevious>Back</button>
+        <button class="btn" mat-raised-button color="primary" (click)="submitAthlete()">Submit</button>
+        <button class="btn" mat-raised-button color="warn" (click)="stepper.reset()">Reset</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+
+</div>
+
+
+
+
+
